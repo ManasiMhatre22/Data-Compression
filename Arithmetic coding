@@ -1,0 +1,110 @@
+
+Aim: Demonstration of arithmetic coding.
+Software: Octave
+Theory: Arithmetic coding overcomes the problem of assigning integer codes to the individual symbols  by assigning one (normally long) code to the entire input file. The method starts with a certain interval, it reads the input file symbol by symbol, and it uses the probability of each symbol to  narrow  the  interval.   Specifying  a  narrower  interval  requires  more  bits,  so  the  number constructed  by  the  algorithm   grows  continuously.
+str='ABCA';
+arith=str;
+length=size(str);
+disp(length);
+le=length(2)
+disp(le)
+count=[];
+disp('Arithmatic Encoding Started');
+for i=1:le-1
+    count(i)=1;
+    for j=i+1:le
+        if str(i)==str(j)
+            str(j)=0;
+            count(i)=count(i)+1;
+        end
+    end
+end
+if(str(le)~=0)
+    count(le)=1;
+end
+j=1;
+disp(count)
+for i=1:le
+    if(str(i)~=0)
+        new(j)=str(i);
+        p(j)=count(i)/le;
+        if(j>1)
+            ar(j)=ar(j-1)+p(j);
+        else
+            ar(j)=p(j);
+        end
+        disp(['Probability for ',str(i),' is   ',num2str(p(j))]);  
+        j=j+1;
+    end
+end
+str='ABCA';
+arith=str;
+length=size(str);
+disp(length);
+le=length(2)
+disp(le)
+count=[];
+disp('Arithmatic Encoding Started');
+for i=1:le-1
+    count(i)=1;
+    for j=i+1:le
+        if str(i)==str(j)
+            str(j)=0;
+            count(i)=count(i)+1;
+        end
+    end
+end
+if(str(le)~=0)
+    count(le)=1;
+end
+j=1;
+disp(count)
+for i=1:le
+    if(str(i)~=0)
+        new(j)=str(i);
+        p(j)=count(i)/le;
+        if(j>1)
+            ar(j)=ar(j-1)+p(j);
+        else
+            ar(j)=p(j);
+        end
+        disp(['Probability for ',str(i),' is   ',num2str(p(j))]);  
+        j=j+1;
+    end
+end
+
+str='ABCA';
+arith=str;
+length=size(str);
+disp(length);
+le=length(2)
+disp(le)
+count=[];
+disp('Arithmatic Encoding Started');
+for i=1:le-1
+    count(i)=1;
+    for j=i+1:le
+        if str(i)==str(j)
+            str(j)=0;
+            count(i)=count(i)+1;
+        end
+    end
+end
+if(str(le)~=0)
+    count(le)=1;
+end
+j=1;
+disp(count)
+for i=1:le
+    if(str(i)~=0)
+        new(j)=str(i);
+        p(j)=count(i)/le;
+        if(j>1)
+            ar(j)=ar(j-1)+p(j);
+        else
+            ar(j)=p(j);
+        end
+        disp(['Probability for ',str(i),' is   ',num2str(p(j))]);  
+        j=j+1;
+    end
+end
